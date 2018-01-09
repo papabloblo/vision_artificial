@@ -1,0 +1,28 @@
+---
+title: "Memoria M0"
+author: "Pablo Hidalgo"
+output: html_notebook
+---
+
+# Lectura de imágenes de partida
+
+Las imágenes de partica están almacenadas en formato NIfTI (**N**euroimaging **I**n**f**ormatics **T**echnology **I**nitiative)
+
+```{r}
+library(oro.nifti)
+I3T <- readNIfTI("data/I3T")
+
+I3TCSF <- readNIfTI("data/I3TCSF")
+I3TGM <- readNIfTI("data/I3TGM")
+I3TWM <- readNIfTI("data/I3TWM")
+```
+
+```{r}
+data <- img_data(I3T)
+slotNames(I3T)
+```
+
+```{r}
+image(I3T, z = c(5, 20, 40, 60, 80, 100, 120), plane = "coronal", plot.type = "single")
+```
+
